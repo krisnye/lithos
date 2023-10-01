@@ -1,6 +1,7 @@
 
 export * from "./hooks/index.js"
 export * from "./html/index.js"
+export * from "./core/index.js"
 
 // export * as lit from "lit"
 // export * as lit_decorators from "lit/decorators.js"

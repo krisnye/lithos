@@ -16,6 +16,7 @@
     "deploy": "npm run clean && npm run build && npm publish --access public"
   },
   "exports": {
+    ".": "./lib/index.js",
     "./*": "./lib/*.js"
   },
   "devDependencies": {
