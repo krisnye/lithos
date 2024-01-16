@@ -1,10 +1,10 @@
-import { FunctionalComponent, getActiveFunctionalComponent } from "../core/private/FunctionalComponent.js"
+import { FunctionalComponent, getActiveFunctionalComponent } from "../core/FunctionalComponent.js"
 import { arraysEqualShallow } from "../core/private/functions.js";
 
 export type EffectCallback = () => (void | (() => void))
-type EffectHookState = { dispose?: () => void, dependencies: any[] };
+type EffectHookState = { dispose?: () => void, dependencies: unknown[] };
 
-export function useEffect<T extends FunctionalComponent>(callback: EffectCallback, dependencies: any[] = []) {
+export function useEffect<T extends FunctionalComponent>(callback: EffectCallback, dependencies: unknown[] = []) {
     const component = getActiveFunctionalComponent() as T;
     const hookIndex = component.hookIndex++;
     const oldHookState = component.hooks[hookIndex] as EffectHookState | undefined;

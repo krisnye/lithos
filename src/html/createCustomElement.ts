@@ -1,5 +1,5 @@
 import { Factory } from "../core/Factory.js"
-import { createFunctionalComponentClass } from "../core/private/FunctionalComponent.js"
+import { createFunctionalComponentClass } from "../core/FunctionalComponent.js"
 import { Constructor } from "../core/types.js"
 import { CreateFunction, ElementProperties, element } from "./private/ElementFactory.js"
 import { htmlElementToType } from "./private/elements.html.generated.js"

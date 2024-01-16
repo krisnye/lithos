@@ -1,7 +1,7 @@
-import { Component } from "../Component.js"
-import { Factory } from "../Factory.js"
-import { objectsEqualShallow } from "./functions.js"
-import { Constructor } from "../types.js"
+import { Component } from "./Component.js"
+import { Factory } from "./Factory.js"
+import { objectsEqualShallow } from "./private/functions.js"
+import { Constructor } from "./types.js"
 
 export type FunctionalComponent<BaseType extends Component = Component, Properties extends object = object> = BaseType & {
     properties: Properties
@@ -12,7 +12,7 @@ export type FunctionalComponent<BaseType extends Component = Component, Properti
 
 export function createFunctionalComponentClass<C extends Component, P extends object>(
     baseClass: Constructor<C>,
-    update: (properties: P) => Factory<C>
+    update: (properties: P) => Factory<C>,
 ): Constructor<FunctionalComponent<C, P>> {
     class CustomFunctionalComponent extends (baseClass as Constructor<Component>) {
         private _properties?: P

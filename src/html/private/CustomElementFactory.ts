@@ -1,4 +1,4 @@
-import { FunctionalComponent } from "../../core/private/FunctionalComponent.js"
+import { FunctionalComponent } from "../../core/FunctionalComponent.js"
 import { Constructor } from "../../core/types.js"
 import { HTMLElementProperties, HTMLElementTagNameMapExact } from "../elements.js"
 import { ElementFactory, ElementProperties } from "./ElementFactory.js"

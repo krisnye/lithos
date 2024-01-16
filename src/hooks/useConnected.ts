@@ -1,10 +1,10 @@
-import { getActiveFunctionalComponent } from "../core/private/FunctionalComponent.js"
+import { getActiveFunctionalComponent } from "../core/FunctionalComponent.js"
 import { EffectCallback, useEffect } from "./useEffect.js";
 
 function empty() {
 }
 
-export function useConnected(callback: EffectCallback, dependencies?: []) {
+export function useConnected(callback: EffectCallback, dependencies?: unknown[]) {
     const component = getActiveFunctionalComponent();
 
     let disconnect: (() => void) | undefined;
