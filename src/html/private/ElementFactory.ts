@@ -125,7 +125,7 @@ export function element<T extends StyledElement, P extends ElementProperties>(
             properties = propertiesOrFirstChild;
         }
         properties ??= {} as P;
-        properties.children = otherChildren.map(child => typeof child === "string" ? new TextFactory(child) : child);
+        properties.children = otherChildren.filter(child => child !== null && child !== undefined).map(child => typeof child === "string" ? new TextFactory(child) : child);
         return createFactory(namespace, tagName, type, properties) as Factory<T, P>;
     }
     return create as unknown as CreateFunction<T, P>;
@@ -135,8 +135,10 @@ type AddStringIfTextAllowed<T> = T extends Factory<Node>[] ?
     (Factory<Text>[] extends T ? (string | T[number])[] : T) :
     T;
 
+type AddNullOrUndefinedToArrayType<T> = T extends (infer I)[] ? (I | null | undefined)[] : T;
+
 type ChildrenType<P extends ElementProperties> =
-    AddStringIfTextAllowed<P["children"]>
+    AddNullOrUndefinedToArrayType<AddStringIfTextAllowed<P["children"]>>;
 
 export type CreateFunction<T extends StyledElement, P extends ElementProperties> = { children } extends P ? {
     (properties: Omit<P, "children">, ...children: ChildrenType<P>): Factory<T>,

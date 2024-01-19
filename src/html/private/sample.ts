@@ -24,7 +24,9 @@ const HelloFunctionalShadowRoot = createCustomElement((props: MyCustomProps) => 
             color: orange;
         }
         `),
+        null,
         Span(`Hello ${name} ${count}`),
+        undefined,
         Button({
             on: {
                 click(e) {
@@ -54,9 +56,11 @@ export function HTMLSample() {
         P(
             HelloFunctionalShadowRoot({ name: "Functional" }, "hello functional content"),
         ),
+        null,
+        undefined,
         P(
             GrowButton("Click to Grow"),
-        )
+        ),
     )
 }
 
