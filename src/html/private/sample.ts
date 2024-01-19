@@ -27,6 +27,7 @@ const HelloFunctionalShadowRoot = createCustomElement((props: MyCustomProps) => 
         null,
         Span(`Hello ${name} ${count}`),
         undefined,
+        false,
         Button({
             on: {
                 click(e) {
@@ -58,6 +59,7 @@ export function HTMLSample() {
         ),
         null,
         undefined,
+        false,
         P(
             GrowButton("Click to Grow"),
         ),
