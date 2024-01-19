@@ -1,6 +1,6 @@
 {
   "name": "lithos",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Declarative Web Components in 1Kb",
   "main": "lib/index.js",
   "type": "module",
