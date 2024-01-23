@@ -52,3 +52,5 @@ function htmlElement<TagName extends keyof typeof htmlElementToType>(tagName: No
 //  Code to automatically generate them if we want to export a single object.
 type ElementFactories = { [K in Capitalize<StringKeyof<HTMLElementTagNameMap>>]: CreateFunction<HTMLElementTagNameMapExact[Lowercase<K>], HTMLPropertyMap[Lowercase<K>]> };
 export const html = Object.fromEntries(Object.keys(htmlElementToType).map(tagName => [tagName[0].toUpperCase() + tagName.slice(1), htmlElement(tagName as any)])) as ElementFactories;
+
+export const { A, Abbr, Address, Area, Article, Aside, Audio, B, Base, Bdi, Bdo, Blockquote, Body, Br, Button, Canvas, Caption, Cite, Code, Col, Colgroup, Data, Datalist, Dd, Del, Details, Dfn, Dialog } = html;
